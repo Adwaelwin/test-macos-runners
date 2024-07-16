@@ -13,6 +13,7 @@ jobs:
       - name: install-tailscale
         run: |
           sudo port install tailscale
+          sudo port load tailscale
           sudo tailscale up --authkey ${{ secrets.TAILSCALE_API_KEY }}
           
 
